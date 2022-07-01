@@ -19,6 +19,12 @@ class User extends Authenticatable
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    // user Order hasMany Product
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

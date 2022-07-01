@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->onDelete('cascade');
+
             $table->string('customer_name', 128);
             $table->string('customer_phone_number', 32);
             $table->text('address', 32);
@@ -27,6 +27,8 @@ return new class extends Migration
             $table->decimal('paid_amount', 10, 2);
             $table->enum('payment_status', ['pending', 'complete'])->default('pending');
             $table->text('payment_details')->nullable();
+            $table->foreignId( 'user_id' )->onDelete( 'cascade' );
+            $table->foreignId('processed_by')->onDelete('cascade');
             $table->timestamps();
         });
     }
