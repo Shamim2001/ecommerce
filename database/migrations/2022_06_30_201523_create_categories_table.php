@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('slug', 255);
             $table->string('photo');
-            $table->enum('type', ['parent', 'clied'])->default('parent');
+            $table->enum('type', ['parent', 'child'])->default('parent');
             $table->foreignId('user_id');
             $table->timestamps();
         });
