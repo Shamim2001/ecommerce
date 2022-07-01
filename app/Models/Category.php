@@ -11,6 +11,13 @@ class Category extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    // slug
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
+
+
     // category parent one to one relation
     public function parent_category()
     {
