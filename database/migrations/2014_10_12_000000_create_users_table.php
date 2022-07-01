@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('password', 128);
             $table->string('phone', 32)->unique();
             $table->bigInteger('reward_point')->default(0);
-            $table->string('facebook_id', 32);
-            $table->string('google_id', 32);
+            $table->string('facebook_id', 32)->nullable();
+            $table->string('google_id', 32)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
