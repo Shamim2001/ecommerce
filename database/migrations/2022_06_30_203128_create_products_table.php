@@ -18,10 +18,12 @@ return new class extends Migration
             $table->string('title', 128)->unique();
             $table->string('slug', 156)->unique();
             $table->longText('description');
-            $table->tinyInteger('status')->default(1);
+            $table->string('image');
+            $table->tinyInteger('active')->default(1);
             $table->tinyInteger('in_stock')->default(1);
             $table->decimal('price', 8, 2);
             $table->decimal('sale_price', 8, 2)->nullable();
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }
