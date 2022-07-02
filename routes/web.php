@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
-
-Route::get('/', function () {
-    return view('frontend.index');
+// Frontend
+Route::group(['frontend/'], function () {
+    Route::get('/', [HomeController::class, 'index']);
 });
 
+
+// Backend
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

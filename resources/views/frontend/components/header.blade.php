@@ -6,7 +6,7 @@
                     <h4 class="text-white">Category</h4>
                     <ul>
                         @foreach ($categories as $category)
-                            <li><a href="{{ $category->slug }}" class="text-white ">{{ $category->name }}</a></li>
+                            <li><a href="{{ $category->slug }}" class="text-white">{{ $category->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
