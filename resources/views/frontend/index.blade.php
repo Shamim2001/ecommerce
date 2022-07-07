@@ -13,11 +13,15 @@
 
                         <div class="card-body">
                             <h3 class="card-text">
-                                <a href="">{{ $product->title }}</a>
+                                <a href="{{ route('product.show', $product->slug) }}">{{ $product->title }}</a>
                             </h3>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Add To cart</button>
+                                    <form action="{{ route('cart.add', $product->id) }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Add To cart</button>
+                                    </form>
                                 </div>
                                 <strong class="text-muted">BDT {{ $product->price }}</strong>
                             </div>
@@ -25,10 +29,6 @@
                     </div>
                 </div>
                 @endforeach
-
-                <div class="p-5">
-                    {{ $products->render() }}
-                </div>
             </div>
         </div>
     </div>
